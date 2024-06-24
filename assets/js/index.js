@@ -13,20 +13,24 @@ function checkNumber(value, nameParam) {
   }
 }
 
-// function printNumbers(from, to, interval) {
-//   checkIntNumber(from, "from");
-//   checkIntNumber(to, "to");
-//   checkNumber(interval, "interval");
+function printNumbers(from, to, interval) {
+  checkIntNumber(from, "from");
+  checkIntNumber(to, "to");
+  checkNumber(interval, "interval");
 
-//   let timerId = setInterval(() => {
-//     if (to - from === 0) {
-//       clearInterval(timerId);
-//     }
-//     console.log(from++);
-//   }, interval);
-// }
+  let timerId = setInterval(() => {
+    if (to - from === 0) {
+      clearInterval(timerId);
+    }
+    console.log(from++);
+  }, interval);
+}
 
-// printNumbers(10, 15, 1000);
+try {
+  printNumbers(10, 15, 1000);
+} catch (error) {
+  console.error(error);
+}
 
 // Task 1 (use setTimeout)
 // function printNumbers(from, to, interval) {
@@ -43,29 +47,33 @@ function checkNumber(value, nameParam) {
 //   });
 // }
 
-// printNumbers(10, 15, 1000);
+// try {
+//   printNumbers(10, 15, 1000);
+// } catch (error) {
+//   console.error(error);
+// }
 
-// Task 2 (link)
-const someTime = 15000;
-const GOOGLE_URL = "https://www.google.com/";
-const timeEl = document.createElement("p");
-let secLeft = someTime / 1000;
+// // Task 2 (link)
+// const someTime = 15000;
+// const GOOGLE_URL = "https://www.google.com/";
+// const timeEl = document.createElement("p");
+// let secLeft = someTime / 1000;
 
-const timeId = setInterval(() => {
-  secLeft--;
-  timeEl.textContent = `
-  Зачекайте ${Math.floor(secLeft / 60)}:${("0" + secLeft).slice(-2)}
-  `;
-  document.body.append(timeEl);
-  if (secLeft === 0) {
-    timeEl.remove();
-    clearInterval(timeId);
+// const timeId = setInterval(() => {
+//   secLeft--;
+//   timeEl.textContent = `
+//   Зачекайте ${Math.floor(secLeft / 60)}:${("0" + secLeft).slice(-2)}
+//   `;
+//   document.body.append(timeEl);
+//   if (secLeft === 0) {
+//     timeEl.remove();
+//     clearInterval(timeId);
 
-    setTimeout(() => {
-      const linkGoogle = document.createElement("a");
-      linkGoogle.textContent = "GOOGLE";
-      linkGoogle.href = GOOGLE_URL;
-      document.body.append(linkGoogle);
-    });
-  }
-}, 1000);
+//     setTimeout(() => {
+//       const linkGoogle = document.createElement("a");
+//       linkGoogle.textContent = "GOOGLE";
+//       linkGoogle.href = GOOGLE_URL;
+//       document.body.append(linkGoogle);
+//     });
+//   }
+// }, 1000);
