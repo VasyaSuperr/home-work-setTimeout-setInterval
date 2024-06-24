@@ -28,19 +28,44 @@ function checkNumber(value, nameParam) {
 
 // printNumbers(10, 15, 1000);
 
-// Task 2 (use setTimeout)
-function printNumbers(from, to, interval) {
-  checkIntNumber(from, "from");
-  checkIntNumber(to, "to");
-  checkNumber(interval, "interval");
+// Task 1 (use setTimeout)
+// function printNumbers(from, to, interval) {
+//   checkIntNumber(from, "from");
+//   checkIntNumber(to, "to");
+//   checkNumber(interval, "interval");
 
-  setTimeout(function tick() {
-    console.log(from++);
+//   setTimeout(function tick() {
+//     console.log(from++);
 
-    if (from <= to) {
-      setTimeout(tick, interval);
-    }
-  });
-}
+//     if (from <= to) {
+//       setTimeout(tick, interval);
+//     }
+//   });
+// }
 
-printNumbers(10, 15, 1000);
+// printNumbers(10, 15, 1000);
+
+// Task 2 (link)
+const someTime = 15000;
+const GOOGLE_URL = "https://www.google.com/";
+const timeEl = document.createElement("p");
+let secLeft = someTime / 1000;
+
+const timeId = setInterval(() => {
+  secLeft--;
+  timeEl.textContent = `
+  Зачекайте ${Math.floor(secLeft / 60)}:${("0" + secLeft).slice(-2)}
+  `;
+  document.body.append(timeEl);
+  if (secLeft === 0) {
+    timeEl.remove();
+    clearInterval(timeId);
+
+    setTimeout(() => {
+      const linkGoogle = document.createElement("a");
+      linkGoogle.textContent = "GOOGLE";
+      linkGoogle.href = GOOGLE_URL;
+      document.body.append(linkGoogle);
+    });
+  }
+}, 1000);
